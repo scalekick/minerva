@@ -1,0 +1,45 @@
+  <div class="headerPane"><div class="inner">
+    <h1>{{category}} Overview</h1>
+  </div></div>
+
+  <div class="chartPane"><div class="inner">
+    <div class="bigChart">
+      <h2>Sales by Month</h2>
+      <canvas id="bar" class="chart chart-bar" chart-colors="colors"
+        chart-data="chartDataSales" chart-labels="labels" chart-series="series"
+        chart-options="options">
+      </canvas>
+    </div>
+  </div></div>
+
+  <div class="dashPane"><div class="inner">
+    <div class="floatPane">
+      <h2>Information by month</h2>
+      <ul class="sectionLinks" ng-repeat="month in months | orderBy:'code'">
+        <li><a href="#/prices/{{month.code}}">2016 {{month.name}}</a></li>
+      </ul>
+    </div>
+
+  <div class="dataPane"><div class="inner">
+    <h2>Detailed Sales Data</h2>
+    <table class="heroTable">
+      <tr class="header">
+        <th>Month</th>
+        <th>Orders</th>
+        <th>Sales</th>
+        <th>Popular Products</th>
+      </tr>
+      <tr ng-repeat="data in collection | orderBy:'month'">
+        <td class="label">2016 {{months[data.month-1].name}}</td>
+        <td class="number">{{data.orders | number}}</td>
+        <td class="number">{{data.sales | currency:"¥":0}}</td>
+        <td class="number">{{data.products | number}}</td>
+      </tr>
+      <tr class="totalRow">
+        <td>Total</td>
+        <td class="number">{{ordersTotal | number}}</td>
+        <td class="number">{{salesTotal | currency:"¥":0}}</td>
+        <td class="number">{{productsTotal | number}}</td>
+      </tr>
+    </table>
+  </div></div>

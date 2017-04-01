@@ -1,0 +1,24 @@
+<div class="modalPane"><div class="inner wide">
+  <h1>Contact us</h1>
+  <div ng-show="error" class="alert alert-danger row">
+    <span>{{ error.message }}</span>
+  </div>
+
+  <form ng-submit="sendMail()">
+    <div class="form-group">
+      <label>Your name</label>
+      <input type="text" ng-model="contact.fullname" autofocus></input>
+    </div>
+    <div class="form-group">
+      <label>Your email</label>
+      <input type="text" ng-model="contact.email"></input>
+    </div>
+    <div class="form-group">
+      <label>Enquiry</label>
+      <textarea ng-model="contact.content"></textarea>
+    </div>
+    <div class="submitBox">
+      <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </form>
+</div></div>

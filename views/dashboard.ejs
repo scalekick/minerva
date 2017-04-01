@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Minerva</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
+<script src="/javascripts/main-app.js"></script>
+<link href="/stylesheets/style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato|Rubik:300" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="minerva">
+
+<div id="header"><div class="inner" ng-controller="NavCtrl">
+  <h1>Minerva</h1>
+  <ul id="menu">
+    <li ng-show="isLoggedIn()"><a href="#/home">dashboard</a></li>
+    <li ng-show="isLoggedIn()"><a href="#/account">account</a></li>
+    <li ng-show="!isLoggedIn()"><a href="/#/pricing">pricing</a></li>
+    <li ng-show="!isLoggedIn()"><a class="nav-button" href="#/login">login</a></li>
+  </ul>
+</div></div>
+<div id="main">
+  <ui-view></ui-view>
+</div>
+<div id="footer"><div class="inner" ng-controller="NavCtrl">
+  <ul>
+    <li><a href="/#/terms">Terms and conditions</a></li>
+    <li><a href="/#/contact">Contact us</a></li>
+    <li ng-show="isLoggedIn()"><a href="#/logout">Logout</a></li>
+
+  </ul>
+  <p>Minerva - Copyright 2017</p>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<div class="headerPane"><div class="inner">
+  <h1>{{category}} Pricing Data for {{month}} {{year}}</h1>
+  <div id="skipBlock">
+    <select id="skipYear">
+      <option value="2016">2016</option>
+    </select>
+    <select id="skipMonth" ng-options="option as option.name for option in monthsOption" ng-model="choseMonth" ng-change="updatePage()">
+    </select>
+  </div>
+</div></div>
+
+<div class="chartPane"><div class="inner">
+  <div class="bigChart">
+    <h2>{{category}} Sales vs Price</h2>
+    <canvas id="bar" class="chart chart-bar" chart-colors="colors"
+      chart-data="chartDataSales" chart-labels="labels" chart-series="series"
+      chart-options="options">
+    </canvas>
+  </div>
+
+  <div class="bigChart">
+    <h2>{{category}} Orders vs Price</h2>
+    <canvas id="bar" class="chart chart-bar" chart-colors="colorsAlt"
+      chart-data="chartDataOrders" chart-labels="labels" chart-series="seriesAlt"
+      chart-options="options">
+    </canvas>
+  </div>
+</div></div>
+
+<div class="dataPane"><div class="inner">
+  <h2>Detailed Pricing Data</h2>
+  <table class="heroTable">
+    <tr class="header">
+      <th>Price Range</th>
+      <th>Orders</th>
+      <th>Sales Index</th>
+      <th>Popular Products</th>
+    </tr>
+    <tr ng-repeat="price in prices | orderBy:'range_start'">
+      <td class="label">{{price.range_start | currency:"¥":0}}-{{price.range_end | number:0}}</td>
+      <td class="number">{{price.orders | number}}</td>
+      <td class="number">{{price.sales | number}}</td>
+      <td class="number">{{price.products | number}}</td>
+    </tr>
+    <tr class="totalRow">
+      <td>Total</td>
+      <td class="number">{{ordersTotal | number}}</td>
+      <td class="number">{{salesTotal | number}}</td>
+      <td class="number">{{productsTotal | number}}</td>
+    </tr>
+  </table>
+</div></div>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Minerva</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+<script src="/javascripts/guest-app.js"></script>
+<link href="/stylesheets/style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato|Rubik:300" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="minerva">
+
+<div id="header"><div class="inner">
+  <h1>Minerva</h1>
+  <ul id="menu">
+    <li><a href="#/pricing">pricing</a></li>
+    <li><a class="nav-button" href="/dashboard/#/login">login</a></li>
+  </ul>
+</div></div>
+<div id="main">
+  <ui-view></ui-view>
+</div>
+<div id="footer"><div class="inner">
+  <ul>
+    <li><a href="/#/terms">Terms and conditions</a></li>
+    <li><a href="/#/contact">Contact us</a></li>
+    <li><a href="https://minervahelp.zendesk.com">Support center</a></li>
+  </ul>
+  <p>Minerva - Copyright 2017</p>
+</div>
+
+</body>
+</html>

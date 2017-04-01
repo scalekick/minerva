@@ -1,0 +1,52 @@
+<div class="headerPane"><div class="inner">
+  <h1>{{category}} Location Data for {{month}} {{year}}</h1>
+  <div id="skipBlock">
+    <select id="skipYear">
+      <option value="2016">2016</option>
+    </select>
+    <select id="skipMonth" ng-options="option as option.name for option in monthsOption" ng-model="choseMonth" ng-change="updatePage()">
+    </select>
+  </div>
+</div></div>
+
+<div class="chartPane"><div class="inner">
+  <div class="bigChart">
+    <h2>{{category}} Sales vs Location</h2>
+    <canvas id="bar" class="chart chart-bar" chart-colors="colors"
+      chart-data="chartDataSales" chart-labels="labels" chart-series="series"
+      chart-options="options">
+    </canvas>
+  </div>
+
+  <div class="bigChart">
+    <h2>{{category}} Orders vs Location</h2>
+    <canvas id="bar" class="chart chart-bar" chart-colors="colorsAlt"
+      chart-data="chartDataOrders" chart-labels="labels" chart-series="seriesAlt"
+      chart-options="options">
+    </canvas>
+  </div>
+</div></div>
+
+<div class="dataPane"><div class="inner">
+  <h2>Detailed Location Data</h2>
+  <table class="heroTable">
+    <tr class="header">
+      <th>Country of Manufacture</th>
+      <th>Orders</th>
+      <th>Sales</th>
+      <th>Popular Products</th>
+    </tr>
+    <tr ng-repeat="location in locations | orderBy:'-orders'">
+      <td class="label">{{location.location}}</td>
+      <td class="number">{{location.orders | number}}</td>
+      <td class="number">{{location.sales | currency:"¥":0}}</td>
+      <td class="number">{{location.products | number}}</td>
+    </tr>
+    <tr class="totalRow">
+      <td>Total</td>
+      <td class="number">{{ordersTotal | number}}</td>
+      <td class="number">{{salesTotal | currency:"¥":0}}</td>
+      <td class="number">{{productsTotal | number}}</td>
+    </tr>
+  </table>
+</div></div>
